@@ -1,0 +1,17 @@
+{
+    "name": "gps.liu-xiao-guo",
+    "description": "description of gps",
+    "architecture": "@CLICK_ARCH@",
+    "title": "gps",
+    "hooks": {
+        "gps": {
+            "apparmor": "gps/gps.apparmor",
+            "desktop":  "gps/gps.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "XiaoGuo, Liu <xiaoguo.liu@canonical.com>",
+    "framework" : "ubuntu-sdk-15.04"
+}
+
+

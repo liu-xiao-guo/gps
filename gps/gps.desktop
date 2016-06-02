@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=gps
+Exec=qmlscene %U gps/Main.qml
+Icon=gps/gps.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+
