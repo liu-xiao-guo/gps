@@ -102,7 +102,7 @@ MainView {
 
                         console.log("map type name: " + item.name)
                         console.log("map style: " + item.style)
-                        console.log("type des:" + i.description)
+                        console.log("type des:" + item.description)
                         var action = creatAction(leadbar, "info", item)
                         acts.push(action)
                     }
@@ -260,15 +260,20 @@ MainView {
 
                             console.log("mouse: " + mouseX + " " + mouseY)
                             var coord = map.toCoordinate(Qt.point(mouseX, mouseY))
-                            console.log("longitude: " + coord.longitude)
-                            console.log("latitude: " + coord.latitude)
 
-                            var circle = Qt.createQmlObject('import QtLocation 5.3; MapCircle {}', page)
-                            circle.center = coord
-                            circle.radius = units.gu(4)
-                            circle.color = 'green'
-                            circle.border.width = 3
-                            map.addMapItem(circle)
+                            console.log("creating the component")
+                            var component = Qt.createComponent("MapMarkItem.qml")
+                            console.log("creating the item")
+                            var item = component.createObject(map, { coordinate: coord })
+                            console.log("adding the item")
+                            map.addMapItem(item)
+
+//                            var circle = Qt.createQmlObject('import QtLocation 5.3; MapCircle {}', map)
+//                            circle.center = coord
+//                            circle.radius = units.gu(4)
+//                            circle.color = 'green'
+//                            circle.border.width = 3
+//                            map.addMapItem(circle)
 
                             mouse.accepted = true;
                         }
